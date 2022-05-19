@@ -67,7 +67,9 @@ body {
     font-size: 52px;
     line-height: 138%;
 
-    margin-left: 122px;
+    text-align: center;
+    margin-left: 66px;
+
     margin-bottom: 21px;
 }
 
@@ -110,6 +112,7 @@ body {
     line-height: 89%;
     letter-spacing: 0.02em;
     text-align: center;
+    margin-left: 6px;
 
     color: #56597A;
     margin-bottom: 7px;
@@ -119,38 +122,57 @@ body {
 .footer__list {
     font-size: 20px;
     line-height: 150%;
+
+    margin-bottom: 30px;
 }
 
 .footer__item {
+    position: relative;
     margin-left: 15px;
     padding-left: 40px;
 
     margin-bottom: 18px;
 }
 
-.footer__item:nth-child(1) {
-    background-image: url('./../img/phone.svg');
-    background-repeat: no-repeat;
+.footer__item:nth-child(1)::before {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 25px;
+    height: 25px;
+    background: url('./../img/phone.svg') 0 0 / contain no-repeat;
 }
 
-.footer__item:nth-child(2) {
-    background: url('./../img/people.svg');
-    background-repeat: no-repeat;
-    background-position-y: 5px;
+.footer__item:nth-child(2)::before {
+    content: '';
+
+    position: absolute;
+    top: 5px;
+    left: 0;
+
+    width: 25px;
+    height: 16px;
+    background: url('./../img/people.svg') 0 0 / contain no-repeat;
 }
 
-.footer__item:nth-child(3) {
-    background: url('./../img/world.svg');
-    background-repeat: no-repeat;
-    background-position-y: 4px;
-}
+.footer__item:nth-child(3)::before {
+    content: '';
 
-.footer__item:last-child {
-    margin-bottom: 30px;
+    position: absolute;
+    top: 4px;
+    left: 0;
+
+    width: 22px;
+    height: 22px;
+    background: url('./../img/world.svg') 0 0 / contain no-repeat;
 }
 
 .footer__link {
     color: #56597A;
+    display: inline-block;
 }
 
 .footer__link:hover {
@@ -158,7 +180,12 @@ body {
 }
 
 .footer__link:focus {
-    border: 2px solid #B0A074;
+    /* outline: 2px solid #B0A074; */
+    /* outline-offset: 4px; */
+
+    outline-width: 2px;
+    outline-color: #B0A074;
+
     border-radius: 5px;
 }
 
@@ -198,9 +225,10 @@ body {
     height: 100%;
 
     box-shadow: 4px 4px 4px rgba(146, 146, 146, 0.7);
-    border-radius: 5.07498px;
-    padding-left: 35px;
-    padding-right: 35px;
+    border-radius: 5px;
+
+    padding: 0 35px;
+    /* border: 2px solid #fff; */
 
     font-family: 'Roboto', sans-serif;
     font-size: 12px;
@@ -211,28 +239,21 @@ body {
     color: #B9B9B9;
 }
 
-
 .footer__input:hover {
-    background: #FFFFFF;
-    border: 2px solid #B0A074;
-    box-shadow: 4px 4px 4px rgba(146, 146, 146, 0.7);
-    border-radius: 5.07498px;
+    outline: 2px solid #B0A074;
+    /* box-shadow: 4px 4px 4px rgba(146, 146, 146, 0.7), inset 0px 0px 0px 2px #B0A074; */
 }
 
 .footer__input:focus {
-    outline: none;
-    background: #FFFFFF;
-    border: 2px solid #B0A074;
-    box-shadow: 4px 4px 4px rgba(146, 146, 146, 0.7);
-    border-radius: 5.07498px;
+    outline: 2px solid #B0A074;
+    /* box-shadow: 4px 4px 4px rgba(146, 146, 146, 0.7), inset 0px 0px 0px 2px #B0A074; */
 }
 
 .footer__input:disabled {
     background: linear-gradient(180deg, #CCCCCC 0%, #FEFEFE 100%);
-    box-shadow: 4px 4px 4px rgba(146, 146, 146, 0.7);
-    border-radius: 5.07498px;
-    color: #B9B9B9;
 }
+
+
 
 .footer__wrap-button {
     max-width: 284px;
@@ -246,23 +267,27 @@ body {
     width: 100%;
     height: 100%;
 
-    position: relative;
-
     background: #56597A;
     box-shadow: 4px 4px 4px rgba(146, 146, 146, 0.7);
-    border-radius: 5.07498px;
+    border-radius: 5px;
 
     font-family: 'Josefin Sans', sans-serif;
     font-size: 20px;
     line-height: 120%;
-    color: #FFFFFF;
+    color: #fff;
 }
 
-.footer__btn-submit::before {
+.footer__btn-submit span {
+    position: relative;
+    display: inline-block;
+}
+
+.footer__btn-submit span::after {
     content: '';
+
     position: absolute;
-    top: 8;
-    right: 36px;
+    top: 0px;
+    right: -30px;
 
     width: 21px;
     height: 21px;
@@ -273,25 +298,29 @@ body {
     width: 100%;
     height: 100%;
 
-    position: relative;
 
     background: #56597A;
     box-shadow: 4px 4px 4px rgba(146, 146, 146, 0.7);
-    border-radius: 5.07498px;
+    border-radius: 5px;
 
     font-family: 'Josefin Sans', sans-serif;
     font-size: 20px;
     line-height: 120%;
-    color: #FFFFFF;
-
-    padding-right: 25px;
+    color: #fff;
 }
 
-.footer__btn-reset::before {
+.footer__btn-reset span {
+    position: relative;
+    display: inline-block;
+    padding-right: 24px;
+}
+
+.footer__btn-reset span::after {
     content: '';
+
     position: absolute;
-    top: 8;
-    right: 104px;
+    top: 0px;
+    right: -1px;
 
     width: 21px;
     height: 21px;
